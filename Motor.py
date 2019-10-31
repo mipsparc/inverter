@@ -49,6 +49,7 @@ class Motor:
         self.last_pwmfreq = None
         
         self.max_speed = 90
+        self.max_freq = 65
         
         self.inverter = FREQROL.FREQROL()
         self.inverter.start()
@@ -62,6 +63,8 @@ class Motor:
                 freq += p * 5
             
         freq += self.speed_profile[profile_num] * (speed % 5)
+        if freq > self.max_freq:
+            freq = self.max_freq
         return freq
     
     def getPWMfrqFromFreq(self, freq):

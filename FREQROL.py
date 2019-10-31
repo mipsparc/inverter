@@ -6,7 +6,7 @@ import time
 class FREQROL:
     def __init__(self):
         self.ser = serial.Serial(
-        port='/dev/ttyUSB0',
+        port='/dev/ttyUSB3',
         baudrate=9600,
         timeout=0.2,
         write_timeout=0.2
